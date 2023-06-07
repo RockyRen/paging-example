@@ -7,10 +7,12 @@ export const useLoadData = ({
 }) => {
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // 初始化时加载第一页的数据
   useEffect(() => {
     load();
   }, []);
 
+  // 滚动到底部是加载下一页数据
   useEffect(() => {
     const scrollFetch = ((): void => {
       if (timerRef.current) return;

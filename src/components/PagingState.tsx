@@ -42,6 +42,7 @@ const End = (): JSX.Element => {
   )
 };
 
+// 滚动分页组件
 const PagingState = ({
   children, count = 0, loading, end, onePage, fail,
 }: {
@@ -52,21 +53,21 @@ const PagingState = ({
   onePage?: boolean;
   fail?: boolean;
 }): JSX.Element => {
-  // 初始状态：重试
+  // 状态：重试
   if (fail) {
     return (
       <Retry />
     );
   }
 
-  // 初始状态：第一页加载中
+  // 状态：第一页加载中
   if (count === 0 && loading) {
     return (
       <MiddleLoading />
     );
   }
 
-  // 初始状态：空数据
+  // 状态：空数据
   if (count === 0 && !loading) {
     return (
       <Empty />

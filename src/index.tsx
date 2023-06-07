@@ -6,6 +6,7 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
+  // 给App组件提供 Mobx的 store
   <StoreProvider>
     <App />
   </StoreProvider>

@@ -14,18 +14,13 @@ export class PagingStore<Item, Res> {
   public fail = false;    // 是否加载失败
   public fetchList: (pageNum: number, pageSize: number) => Promise<Res>;
 
-  public constructor({
-    pageSize,
-    fetchList,
-  } : {
+  public constructor({pageSize, fetchList} : {
     pageSize?: number;
     fetchList: (pageNum: number, pageSize: number) => Promise<Res>;
   }) {
     makeAutoObservable(this);
     this.fetchList = fetchList;
-    if (pageSize) {
-      this.pageSize = pageSize;
-    }
+    if (pageSize) this.pageSize = pageSize;
   }
 
   public async load(): Promise<Res | null> {
